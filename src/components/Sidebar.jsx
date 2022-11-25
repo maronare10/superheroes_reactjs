@@ -14,6 +14,7 @@ const Sidebar = () => {
         <Link to="/">Login</Link>
         <Link to="/heroes">Heroes</Link>
         <Link to="/heroes/1">Heroe</Link>
+        <Link to="/profile">Perfil</Link>
       </div>
 
       <div>
