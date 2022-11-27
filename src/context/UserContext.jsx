@@ -11,7 +11,7 @@ export const UserProvider = ({ children }) => {
   const storeUser = dataUser => {
     localStorage.setItem('user', JSON.stringify(dataUser))
 
-    setUser(user)
+    setUser(dataUser)
   }
 
   const cleanUser = () => {
