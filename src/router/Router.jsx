@@ -5,25 +5,32 @@ import Heroes from '../pages/Heroes'
 import Hero from '../pages/Hero'
 import Layout from '../components/Layout'
 import Profile from '../pages/Profile'
+import { UserProvider } from '../context/UserContext'
+import PrivateRoutes from './PrivateRoutes'
 
 
 const Router = () => {
   return (
-    <BrowserRouter>
 
+    <UserProvider>
+      <BrowserRouter>
 
-      <Layout>
-        <Routes>
-          <Route path='/' element={<Login />} />
-          <Route path='/heroes' element={<Heroes />} />
-          <Route path='/heroes/:id' element={<Hero />} />
-          <Route path='/profile' element={<Profile />} />
-        </Routes>
-      </Layout>
+        <Layout>
+          <Routes>
+            <Route path='/' element={<Login />} />
 
+            <Route element={<PrivateRoutes/>} >
+              <Route path='/heroes' element={<Heroes />} />
+              <Route path='/heroes/:id' element={<Hero />} />
+              <Route path='/profile' element={<Profile />} />
+            </Route>
 
+          </Routes>
+        </Layout>
 
-    </BrowserRouter>
+      </BrowserRouter>
+    </UserProvider>
+
   )
 }
 
